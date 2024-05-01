@@ -1,51 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizzbuzz.c                                         :+:      :+:    :+:   */
+/*   strcspn.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 17:29:24 by asanni            #+#    #+#             */
-/*   Updated: 2024/04/06 09:20:36 by asanni           ###   ########.fr       */
+/*   Created: 2024/04/06 12:20:39 by asanni            #+#    #+#             */
+/*   Updated: 2024/04/06 12:30:41 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <string.h>
 #include <stdio.h>
 
-void	put_char(char c)
+size_t	ft_strcspn(const char *s, const char *reject)
 {
-	write(1, &c, 1);
-}
+	int	i;
+	int	diff;
 
-int	write_num(int num)
-{
-	if (num <= 9)
-		putchar(num + 48);
-	else
+	i = 0;
+	diff = 0;
+	if (!s || !reject)
+		return (0);
+	while (s[i] && reject[i])
 	{
-		write_num(num / 10);
-		write_num (num % 10);
+		if (s[i] != reject[i])
+			diff++;
+		i++;
 	}
-	return (num);
+	return (diff);
 }
 
 int	main(void)
 {
-	int			i;
+	char	*s1 = "diana";
+	char	*s2 = "d";
 
-	i = 1;
-	while (i <= 100)
-	{
-		if (i % 3 == 0 && i % 5 == 0)
-			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
-			write(1, "fizz", 4);
-		else if (i % 5 == 0)
-			write(1, "buzz", 4);
-		else
-			write_num(i);
-		putchar('\n');
-		i++;
-	}
+	printf("original: %lu\n", strcspn(s1, s2));
+	printf("minha: %zu\n", ft_strcspn(s1, s2));
 }

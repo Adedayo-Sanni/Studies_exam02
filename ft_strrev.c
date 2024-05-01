@@ -1,51 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizzbuzz.c                                         :+:      :+:    :+:   */
+/*   ft_strrev.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 17:29:24 by asanni            #+#    #+#             */
-/*   Updated: 2024/04/06 09:20:36 by asanni           ###   ########.fr       */
+/*   Created: 2024/04/30 16:55:56 by asanni            #+#    #+#             */
+/*   Updated: 2024/05/01 16:38:36 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
 
-void	put_char(char c)
+char	*ft_strrev(char *str)
 {
-	write(1, &c, 1);
-}
+	char	temp;
+	int		start;
+	int		len;
 
-int	write_num(int num)
-{
-	if (num <= 9)
-		putchar(num + 48);
-	else
+	len = -1;
+	temp = 0;
+	start = 0;
+	while (str[len] != '\0')
+		len++;
+	while (start < len)
 	{
-		write_num(num / 10);
-		write_num (num % 10);
+			temp = str[start];
+			str[start] = str[len];
+			str[len] = temp;
+			start++;
+			len --;
 	}
-	return (num);
+	return (str);
 }
 
 int	main(void)
 {
-	int			i;
+	char	*str;
 
-	i = 1;
-	while (i <= 100)
-	{
-		if (i % 3 == 0 && i % 5 == 0)
-			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
-			write(1, "fizz", 4);
-		else if (i % 5 == 0)
-			write(1, "buzz", 4);
-		else
-			write_num(i);
-		putchar('\n');
-		i++;
-	}
+	str = "chata";
+	printf("antes: %s\n", ft_strrev(str));
+	printf("pointer: %p\n", ft_strrev(str));
+	printf("depois: %s\n", ft_strrev(str));
+	printf("pointer: %p\n", ft_strrev(str));
 }

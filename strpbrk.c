@@ -1,51 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizzbuzz.c                                         :+:      :+:    :+:   */
+/*   strpbrk.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 17:29:24 by asanni            #+#    #+#             */
-/*   Updated: 2024/04/06 09:20:36 by asanni           ###   ########.fr       */
+/*   Created: 2024/04/05 23:56:41 by asanni            #+#    #+#             */
+/*   Updated: 2024/04/06 12:13:39 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
+#include <unistd.h>
+#include <string.h>
 
 void	put_char(char c)
 {
 	write(1, &c, 1);
 }
 
-int	write_num(int num)
+char	*ft_strpbrk(const char *s1, const char *s2)
 {
-	if (num <= 9)
-		putchar(num + 48);
-	else
+	int	i;
+	int	j;
+
+	i = 0;
+	j = 0;
+	if (!s1 || !s2)
+		return (0);
+	while (s1[i] != '\0')
 	{
-		write_num(num / 10);
-		write_num (num % 10);
+		j = 0;
+		while (s2[j] != '\0')
+		{
+			if (s1[i] == s2[j])
+				return ((char *)&s1[i]);
+			j++;
+		}
+		i++;
 	}
-	return (num);
+	return (0);
 }
+// s1 = o que vou procurar
+// s2 = onde vou procurar
 
 int	main(void)
 {
-	int			i;
+	char	*s1;
+	char	*s2;
 
-	i = 1;
-	while (i <= 100)
-	{
-		if (i % 3 == 0 && i % 5 == 0)
-			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
-			write(1, "fizz", 4);
-		else if (i % 5 == 0)
-			write(1, "buzz", 4);
-		else
-			write_num(i);
-		putchar('\n');
-		i++;
-	}
+	s1 = "ade";
+	s2 = "ddeayo";
+	printf("original: %s\n", strpbrk(s1, s2));
+	printf("minha: %s\n", ft_strpbrk(s1, s2));
 }

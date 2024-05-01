@@ -6,7 +6,7 @@
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/01 19:55:03 by asanni            #+#    #+#             */
-/*   Updated: 2024/04/03 20:28:24 by asanni           ###   ########.fr       */
+/*   Updated: 2024/04/30 16:44:45 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,33 +41,57 @@ int	is_space(int c)
 	return (c == 32 || c == 9);
 }
 
+// int	main(int argc, char **argv)
+// {
+// 	int	i;
+// 	int	start;
+// 	int	end;
+
+// 	i = 0;
+// 	start = 0;
+// 	end = 0;
+// 	if (argc == 2 && argv[1] != NULL)
+// 	{
+// 		// pulamos do argv[0] para o argv[1]
+// 		argv++;
+// 		// contando quantas letras a str tem para saber qual e o final da str
+// 		i = ft_strlen(*argv) - 1;
+// 		//pulando espacos do final da str
+// 		while (is_space(argv[0][i]))
+// 			i--;
+// 		end = i;
+// 		while (!is_space(argv[0][i]) && argv[0][i] != '\0')
+// 			--i;
+// 		start = i + 1;
+// 		while (start <= end)
+// 		{
+// 			ft_putchar(argv[0][start]);
+// 			start++;
+// 		}
+// 	}
+// 	write(1, "\n", 1);
+// }
+
 int	main(int argc, char **argv)
 {
-	int	i;
 	int	start;
-	int end;
+	int	end;
+	int	i;
 
-	i = 0;
 	start = 0;
-	end = 0;
-	if (argc == 2 && argv[1] != NULL)
+	end = ft_strlen(*argv[1]);
+	i = 0;
+	if (argc == 2)
 	{
-		// pulamos do argv[0] para o argv[1]
-		argv++;
-		// contando quantas letras a str tem para saber qual e o final da str
-		i = ft_strlen(*argv) - 1;
-		//pulando espacos do final da str
-		while (is_space(argv[0][i]))
-			i--;
-		end = i;
-		while (!is_space(argv[0][i]) && argv[0][i] != '\0')
-			--i;
-		start = i + 1;
-		while (start <= end)
+		while (argv[1][i] != '\0')
 		{
-			ft_putchar(argv[0][start]);
-			start++;
+			if (is_space(argv[1][i]))
+			i++;
+		}
+		while (argv[1][end] != '\0')
+		{
+			if (is_space(argv[1][i]))
+			end++;
 		}
 	}
-	write(1, "\n", 1);
 }

@@ -1,51 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizzbuzz.c                                         :+:      :+:    :+:   */
+/*   strcmp.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 17:29:24 by asanni            #+#    #+#             */
-/*   Updated: 2024/04/06 09:20:36 by asanni           ###   ########.fr       */
+/*   Created: 2024/04/05 23:43:47 by asanni            #+#    #+#             */
+/*   Updated: 2024/04/08 16:56:46 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <string.h>
 #include <stdio.h>
 
-void	put_char(char c)
+int	ft_strcmp(char *s1, char *s2)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-int	write_num(int num)
-{
-	if (num <= 9)
-		putchar(num + 48);
-	else
-	{
-		write_num(num / 10);
-		write_num (num % 10);
-	}
-	return (num);
+	i = 0;
+	while ((s1[i] != '\0' && s2[i] != '\0') && s1[i] == s2[i])
+		i++;
+	return (s1[i] - s2[i]);
 }
 
 int	main(void)
 {
-	int			i;
+	char	*s1;
+	char	*s2;
 
-	i = 1;
-	while (i <= 100)
-	{
-		if (i % 3 == 0 && i % 5 == 0)
-			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
-			write(1, "fizz", 4);
-		else if (i % 5 == 0)
-			write(1, "buzz", 4);
-		else
-			write_num(i);
-		putchar('\n');
-		i++;
-	}
+	s1 = " reto";
+	s2 = " rato";
+	printf("original: %d\n", strcmp(s1, s2));
+	printf("minha: %d\n", ft_strcmp(s1, s2));
 }

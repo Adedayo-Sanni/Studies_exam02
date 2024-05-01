@@ -1,51 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fizzbuzz.c                                         :+:      :+:    :+:   */
+/*   ft_max.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/26 17:29:24 by asanni            #+#    #+#             */
-/*   Updated: 2024/04/06 09:20:36 by asanni           ###   ########.fr       */
+/*   Created: 2024/04/29 16:47:01 by asanni            #+#    #+#             */
+/*   Updated: 2024/04/29 17:19:41 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include <stdio.h>
 
-void	put_char(char c)
+int	max(int *tab, unsigned int len)
 {
-	write(1, &c, 1);
-}
+	int	i;
+	int	res;
 
-int	write_num(int num)
-{
-	if (num <= 9)
-		putchar(num + 48);
-	else
+	i = 0;
+	res = tab[i];
+	if (len == 0)
+		return (0);
+	while (i < len)
 	{
-		write_num(num / 10);
-		write_num (num % 10);
+		if (res < tab[i])
+			res = tab[i];
+		i++;
 	}
-	return (num);
+	return (res);
 }
 
 int	main(void)
 {
-	int			i;
-
-	i = 1;
-	while (i <= 100)
-	{
-		if (i % 3 == 0 && i % 5 == 0)
-			write(1, "fizzbuzz", 8);
-		else if (i % 3 == 0)
-			write(1, "fizz", 4);
-		else if (i % 5 == 0)
-			write(1, "buzz", 4);
-		else
-			write_num(i);
-		putchar('\n');
-		i++;
-	}
+	int	numbers[] = {1, 25, 5, 4, 4};
+	unsigned int len = sizeof(numbers) / sizeof(numbers[0]);
+	int maxValue = max(numbers, len);
+	printf("Max: %d\n", maxValue);
+	return (0);
 }
