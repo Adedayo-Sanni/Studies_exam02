@@ -6,7 +6,7 @@
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/01 17:20:05 by asanni            #+#    #+#             */
-/*   Updated: 2024/05/01 18:02:56 by asanni           ###   ########.fr       */
+/*   Updated: 2024/05/01 18:21:29 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,6 @@ int	str_len(char *str)
 	while (str[i] != '\0')
 		i++;
 	return (i);
-}
-
-int check_doubles(char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i] != '\0')
-	{
-		if 
-	}
 }
 
 void	check_both_str(char *str1, char *str2, char c)
