@@ -6,7 +6,7 @@
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/05 23:56:41 by asanni            #+#    #+#             */
-/*   Updated: 2024/04/06 12:13:39 by asanni           ###   ########.fr       */
+/*   Updated: 2024/05/08 20:14:03 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main(void)
 	char	*s2;
 
 	s1 = "ade";
-	s2 = "ddeayo";
+	s2 = "ddeyo";
 	printf("original: %s\n", strpbrk(s1, s2));
 	printf("minha: %s\n", ft_strpbrk(s1, s2));
 }
