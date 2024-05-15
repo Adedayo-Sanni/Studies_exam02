@@ -7,7 +7,7 @@
 		"name": "(gdb) Launch",
 		"type": "cppdbg",
 		"request": "launch",
-		"program": "${workspaceFolder}/a.out",
+		"program": "${workspaceFolder}/level2/a.out",
 		"args": [
 			"   ade sanni     ",
 		],

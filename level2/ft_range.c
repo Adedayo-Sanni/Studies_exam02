@@ -6,7 +6,7 @@
 /*   By: asanni <asanni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 16:47:03 by asanni            #+#    #+#             */
-/*   Updated: 2024/04/27 08:04:02 by asanni           ###   ########.fr       */
+/*   Updated: 2024/05/14 20:23:42 by asanni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,10 @@ int	*ft_range(int start, int end)
 	return (res);
 }
 
-#include <stdio.h>
-#include <stdlib.h>
-
-int main() 
+int	main(void)
 {
 	int start = 5;
 	int end = 10;
-
 
 	int *arr = ft_range(start, end);
 	int len = abs(end - start) + 1;
